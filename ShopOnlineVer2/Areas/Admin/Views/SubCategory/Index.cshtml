@@ -1,0 +1,96 @@
+﻿@model ShopOnlineVer2.Areas.Admin.Models.ModelView.SubCategoryMv
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@section header
+{<h2>Danh mục con sản phẩm</h2>}
+@section jsFooter
+{
+    <script src="~/Acess/Admin/js/plugins/mustache.min.js"></script>
+    <script src="~/Acess/Admin/js/Controller/SubCategoryController.js"></script>
+    <script src="~/Acess/Admin/js/plugins/jquery.twbsPagination.min.js"></script>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 m-3 row">
+            <div class="offset-md-8"></div>
+            <div class="col-md-4 btn-circle">
+                <a class="btn btn-danger" id="btnAddNew" href="/Admin/SubCategory/Insert" >Thêm mới</a>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Category Name</td>
+                    <td>Status</td>
+                    <td>#</td>
+                </tr>
+                </thead>
+                <tbody id="dbTable"></tbody>
+            </table>
+            <div id="pagination" class="pagination">
+            </div>
+
+            <script id="data-template" type="x-tmpl-mustache">
+                <tr>
+                    <td>{{ID}}</td>
+                    <td>{{Name}}</td>
+                    <td>{{CategoryName}}</td>
+                    <td>{{{Status}}}</td>
+                    <td>
+                        <button class="btn btn-success btn-edit mb-2" data-id="{{ID}}">Sửa</button>
+                        <button class="btn btn-danger btn-delete mb-2" data-id="{{ID}}">Xóa</button>
+                    </td>
+                </tr>
+            </script>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Update -->
+<div class="modal fade" id="SubCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 <form>
+                    <div class="row  mx-5">
+
+                        <div class="form-group col-md-12 row mb-3">
+                            <label class="col-md-4">Tên danh mục con</label>
+                            <input type="text"
+                                   class="form-control col-md-6" name="Name" id="Nametxt" aria-describedby="helpId">
+
+                        </div>
+                        <div class="form-group col-md-12 row mb-3">
+                            <label class="col-md-4">Chọn Danh mục</label>
+                            @Html.DropDownListFor(x => x.CategoryId, ViewBag.category as SelectList, "Chọn danh mục", new { @class = "form-control col-md-6", @id = "CategoryId" })
+
+                        </div>
+                        <div class="form-group col-md-12 row mb-3">
+                            <label class="col-md-4"> trạng thái</label>
+                            <input type="checkbox"
+                                   class=" col-md-4" name="Status" id="statusckb" aria-describedby="helpId" placeholder="">
+                        </div>
+                        <div class="form-group col-md-12 row mb-3">
+                            <div class="offset-sm-4"></div>
+                            <button type="submit" id="btnSubmit" class=" btn btn-success col-md-4">Thêm mới danh mục con</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

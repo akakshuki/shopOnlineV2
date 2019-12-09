@@ -1,0 +1,48 @@
+﻿@model Model.ModelView.SubCategoryMv
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header
+{
+    <div class="text-center">
+        <h4>Thêm mới danh mục con</h4>
+    </div>
+}
+@section jsFooter
+{
+    <script src="~/Acess/Admin/js/plugins/mustache.min.js"></script>
+    <script src="~/Acess/Admin/js/Controller/SubCategoryController.js"></script>
+    <script src="~/Acess/Admin/js/plugins/jquery.twbsPagination.min.js"></script>
+}
+
+<div class="container m-5">
+    <form>
+        <div class="row  mx-5">
+
+            <div class="form-group col-md-12 row mb-3">
+                <label class="col-md-4">Tên danh mục con</label>
+                <input type="text"
+                       class="form-control col-md-6" name="Name" id="Nametxt" aria-describedby="helpId">
+
+            </div>
+            <div class="form-group col-md-12 row mb-3">
+                <label class="col-md-4">Chọn Danh mục</label>
+                @Html.DropDownListFor(x => x.CategoryId, ViewBag.category as SelectList, "Chọn danh mục", new { @class = "form-control col-md-6", @id = "CategoryId" })
+
+            </div>
+            <div class="form-group col-md-12 row mb-3">
+                <label class="col-md-4"> trạng thái</label>
+                <input type="checkbox"
+                       class=" col-md-4" name="Status" id="statusckb" aria-describedby="helpId" placeholder="">
+            </div>
+            <div class="form-group col-md-12 row mb-3">
+                <div class="offset-sm-4"></div>
+                <button type="submit" id="btnSubmit" class=" btn btn-success col-md-4">Thêm mới danh mục con</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

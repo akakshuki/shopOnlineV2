@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "MoreImage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+
+@section header{
+    <h4>Quản lý ảnh Sản phẩm</h4>
+}
+@section jsFooter
+{
+    <script src="~/Acess/Admin/js/plugins/mustache.min.js"></script>
+    <script src="~/Acess/Admin/js/Controller/ImageController.js"></script>
+    <script src="~/Acess/Admin/js/plugins/jquery.twbsPagination.min.js"></script>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 m-3 row">
+            <div class="offset-md-8"></div>
+            <div class="col-md-4 btn-circle">
+                <input type="hidden" id="idProduct" value="@ViewBag.idProduct" />
+                <a class="btn btn-danger text-white" id="btnAddNew">Thêm mới</a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Name product</td>
+                        <td>Image</td>
+                        <td>Status</td>
+                        <td>#</td>
+                    </tr>
+                </thead>
+                <tbody id="dbTable"></tbody>
+            </table>
+            <div id="pagination" class="pagination">
+            </div>
+
+            <script id="data-template" type="x-tmpl-mustache">
+                <tr>
+                    <td>{{ID}}</td>
+                    <td>{{ProductName}}</td>
+                    <td id="ImageCol">
+                        <img src=/Acess/Admin/img/product/{{ImageProduct}} alt="Image" height="100" width="100" />
+                    </td>
+                    <td>{{{Status}}}</td>
+                    <td class="row">
+                        <button class="btn btn-success btn-edit m-1 col-md-4 col-sm-6 " data-id="{{ID}}"><i class="far fa-edit  "></i></button>
+                        <button class="btn btn-danger btn-delete m-1 col-md-4 col-sm-6" data-id="{{ID}}"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+            </script>
+        </div>
+    </div>
+</div>
+<!-- Modal Insert -->
+<div class="modal fade" id="InputImageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Thêm mới danh mục</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form  method="post" enctype="multipart/form-data">
+                    <div class="row  mx-5">
+                        <input type="hidden" id="idNum" name="ID" />
+                            
+                        <div class="form-group col-md-12 row mb-3">
+                            <div class="offset-md-4"></div>
+                            <div class="col-md-6">
+                                <img src="" height="200" width="200" id="ImagePreviewBox" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12 row mb-3">
+                            <label class="col-md-4">Chọn hình đại diện</label>
+                            <input type="file" id="Image" name="Image" multiple accept="image/png, image/jpeg" onchange="encodeImageFileAsURL(this)"  Onchange="document.getElementById('ImagePreviewBox').src = window.URL.createObjectURL(this.files[0])">
+                        </div>
+
+                        @*<div class="form-group col-md-12 row mb-3">
+                            <label class="col-md-4">Thông tin sản phẩm</label>
+                            <textarea class="form-control col-md-6" name="Detail"></textarea>
+
+                        </div>*@
+                       
+                        <div class="form-group col-md-12 row mb-3">
+                            <label class="col-md-4"> trạng thái</label>
+                            <input type="checkbox"
+                                   class=" col-md-4" name="Status" id="statusckb" aria-describedby="helpId" placeholder="">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="button" id="btnSubmit" class="btn btn-primary">Xác nhận</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

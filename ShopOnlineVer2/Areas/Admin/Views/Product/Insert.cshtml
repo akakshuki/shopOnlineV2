@@ -1,0 +1,99 @@
+﻿@model Model.ModelView.ProductMv
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header
+{
+    <h4> Thêm mới sản phẩm</h4>
+}
+
+@section jsFooter
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#CategoryId").change(function() {
+                $("#SubCategoryId").empty();
+                $.get("/Product/setViewBagSubCategory",
+                    { idCategory: $("#CategoryId").val() },
+                    function(data) {
+                        $.each(data,
+                            function(index, row) {
+                                $("#SubCategoryId").append("<option value='" +
+                                    row.SubCategoryId +
+                                    "'>" +
+                                    row.SubCategoryName +
+                                    "</option>");
+                            });
+                    });
+            });
+            $('#statusckb').change(function () {
+                if ($('#statusckb').attr("checked")) {
+                    $('#statusckb').val(true);
+                } else {
+                    $('#statusckb').val(true);
+                }
+
+            });
+            var editor = CKEDITOR.replace('Detail');
+            customConfig: '/Acess/Admin/js/plugins/ckeditor/config.js';
+        });
+    </script>
+
+
+
+
+
+}
+
+<div class="container m-5">
+        <form @Url.Action("Insert") method="post" enctype = "multipart/form-data">
+            <div class="row  mx-5">
+
+                <div class="form-group col-md-12 row mb-3">
+                    <label class="col-md-4">Tên danh mục con</label>
+                    <input type="text"
+                           class="form-control col-md-6" name="Name" id="Nametxt" aria-describedby="helpId">
+
+                </div>
+                <div class="form-group col-md-12 row mb-3">
+                    <div class="offset-md-4"></div>
+                    <div class="col-md-6" >
+                        <img src="" height="200" width="200" id="ImagePreviewBox"  />
+                    </div>
+                </div>
+                <div class="form-group col-md-12 row mb-3">
+                    <label class="col-md-4">Chọn hình đại diện</label>
+                    <input type="file" id="Image" name="Image" multiple  accept="image/png, image/jpeg" Onchange="document.getElementById('ImagePreviewBox').src = window.URL.createObjectURL(this.files[0])">
+                </div>
+
+                <div class="form-group col-md-12 row mb-3">
+                    <label class="col-md-4">Thông tin sản phẩm</label>
+                    <textarea class="form-control col-md-6" name="Detail" id="Detailtxt"></textarea>
+
+                </div>
+                <div class="form-group col-md-12 row mb-3">
+                    <label class="col-md-4">Chọn Danh mục</label>
+                    @Html.DropDownListFor(x => x.CategoryId, ViewBag.category as SelectList, "Chọn danh mục", new { @class = "form-control col-md-6", @id = "CategoryId" })
+
+                </div>
+                <div class="form-group col-md-12 row mb-3">
+                    <label class="col-md-4">Chọn Danh mục</label>
+                    @Html.DropDownListFor(x => x.SubCategoryId, new SelectList(""), "Chọn danh mục con", new { @class = "form-control col-md-6", @id = "SubCategoryId" })
+
+                </div>
+                <div class="form-group col-md-12 row mb-3">
+                    <label class="col-md-4"> trạng thái</label>
+                    <input type="checkbox"
+                           class=" col-md-4" name="Status" id="statusckb" aria-describedby="helpId" placeholder="">
+                </div>
+                <div class="form-group col-md-12 row mb-3">
+                    <div class="offset-sm-4"></div>
+                    <button type="submit" id="btnSubmit" class=" btn btn-success col-md-4">Thêm mới sản phẩm</button>
+                </div>
+            </div>
+        </form>
+
+</div>
+
