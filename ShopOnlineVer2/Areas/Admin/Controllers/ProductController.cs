@@ -245,5 +245,28 @@ namespace ShopOnlineVer2.Areas.Admin.Controllers
             },JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult InsertDetailProduct(DetailProductMv model)
+        {
+
+            model.DateCreate = DateTime.Now;
+            var res = new ProductDetailDao().insertDetail(model);
+            if (res)
+            {
+                setAlbert("thêm loại sản phẩm thành công", "success");
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            else
+            {
+                setAlbert("thêm loại sản phẩm thất bại", "error");
+                return Json(new
+                {
+                    status = false
+                });
+            }
+        }
     }
 }

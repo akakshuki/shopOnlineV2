@@ -29,12 +29,31 @@ namespace Model.Dao
                  Status = x.Status,
                  ProductName = x.Product.Name,
                  ProductId = x.Product.ID,
-                 
-                 
+
 
              }).ToList();
              return dataList;
          }
+        public  bool  insertDetail(DetailProductMv model)
+        {
+            var data = new DetailProduct();
+            data.Color = model.Color;
+            data.Size = model.Size;
+            data.ProductId = model.ProductId;
+            data.Price = model.Price;
+            data.Status = model.Status;
+            data.DateCreate = model.DateCreate;
+            db.DetailProducts.Add(data);
+            if (db.SaveChanges()>0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
      }
+
 }
