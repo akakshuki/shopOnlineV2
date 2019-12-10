@@ -33,10 +33,8 @@
           <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
           <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
           <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Color" ColumnName="Color" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>

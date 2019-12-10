@@ -154,6 +154,7 @@
     <Content Include="Acess\Admin\js\Controller\CategoryController.js" />
     <Content Include="Acess\Admin\js\Controller\ImageController.js" />
     <Content Include="Acess\Admin\js\Controller\ProductController.js" />
+    <Content Include="Acess\Admin\js\Controller\productDetail.js" />
     <Content Include="Acess\Admin\js\Controller\SubCategoryController.js" />
     <Content Include="Acess\Admin\js\Controller\UserController.js" />
     <Content Include="Acess\Admin\js\demo\chart-area-demo.js" />

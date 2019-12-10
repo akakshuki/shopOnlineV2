@@ -78,10 +78,8 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="Quantity" Type="Int32" />
     <Property Name="CreateBy" Type="Int32" />
     <Property Name="DateCreate" Type="DateTime" Precision="3" />
     <Property Name="ModifyBy" Type="Int32" />

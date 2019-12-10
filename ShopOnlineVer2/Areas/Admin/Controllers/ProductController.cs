@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace ShopOnlineVer2.Areas.Admin.Controllers
@@ -228,7 +229,20 @@ namespace ShopOnlineVer2.Areas.Admin.Controllers
 
         public ActionResult DetailProduct(int id)
         {
+            @ViewBag.productId = id;
             return View();
+        }
+
+        [HttpGet]
+        public JsonResult LoadDetailProduct( int id)
+        {
+            var dataList = new ProductDetailDao().getListAll(id);
+
+            return Json(new
+            {
+                data = dataList,
+                status = true
+            },JsonRequestBehavior.AllowGet);
         }
 
     }

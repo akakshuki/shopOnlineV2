@@ -5,17 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="af30afd173a6415a95e4e792aaf8604d" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.Category" Width="1.5" PointX="0.75" PointY="5.125" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.Customer" Width="1.5" PointX="6" PointY="13.75" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.DetailProduct" Width="1.5" PointX="7.5" PointY="3" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.Order" Width="1.5" PointX="8.25" PointY="15.625" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.OrderDetail" Width="1.5" PointX="10.5" PointY="4.75" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.Product" Width="1.5" PointX="5.25" PointY="4.125" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.ProductImage" Width="1.5" PointX="7.5" PointY="10.5" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.Role" Width="1.5" PointX="3.75" PointY="18" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.Category" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.Customer" Width="1.5" PointX="3" PointY="13.5" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.DetailProduct" Width="1.5" PointX="7.5" PointY="9" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.Order" Width="1.5" PointX="5.25" PointY="11.375" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.OrderDetail" Width="1.5" PointX="7.5" PointY="2.625" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.Product" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.ProductImage" Width="1.5" PointX="7.5" PointY="6.25" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.Role" Width="1.5" PointX="0.75" PointY="10.375" />
         <EntityTypeShape EntityType="NhocGiftShopDbModel.Service" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.SubCategory" Width="1.5" PointX="3" PointY="5" />
-        <EntityTypeShape EntityType="NhocGiftShopDbModel.User" Width="1.5" PointX="6" PointY="17.25" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.SubCategory" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="NhocGiftShopDbModel.User" Width="1.5" PointX="3" PointY="9.5" />
         <AssociationConnector Association="NhocGiftShopDbModel.FK_SubCategory_Category" />
         <AssociationConnector Association="NhocGiftShopDbModel.FK_Order_Customer" />
         <AssociationConnector Association="NhocGiftShopDbModel.FK_DetailProduct_Product" />

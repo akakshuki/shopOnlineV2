@@ -32,10 +32,8 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Color" Type="nvarchar" MaxLength="50" />
-          <Property Name="Image" Type="nvarchar" MaxLength="250" />
           <Property Name="Size" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="Quantity" Type="int" />
           <Property Name="CreateBy" Type="int" />
           <Property Name="DateCreate" Type="datetime" />
           <Property Name="ModifyBy" Type="int" />
@@ -369,10 +367,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Quantity" Type="Int32" />
           <Property Name="CreateBy" Type="Int32" />
           <Property Name="DateCreate" Type="DateTime" Precision="3" />
           <Property Name="ModifyBy" Type="Int32" />
@@ -629,10 +625,8 @@
                 <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
                 <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Color" ColumnName="Color" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
