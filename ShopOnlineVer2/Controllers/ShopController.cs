@@ -19,19 +19,24 @@ namespace ShopOnlineVer2.Controllers
         [ChildActionOnly]
         public ActionResult CategoryMenu()
         {
-            var model = new CategoryDao().getListAll();
+            var model = new CategoryDao().ListCategories();
 
             return PartialView(model);
         }
 
         public ActionResult LoadProductByCategory(int id)
         {
-            ViewBag.defaultProduct = new ProductDao().getListProductByCategory(id);
+            ViewBag.defaultProductCategory = new ProductDao().getListProductByCategory(id);
             return View();
         }
-        public ActionResult LoadProductBySubResultCategory(int id)
+        public ActionResult LoadProductBySubCategory(int id)
         {
-            ViewBag.defaultProduct = new ProductDao().getListProductBySubCategory(id);
+            ViewBag.defaultProductSubCategory = new ProductDao().getListProductBySubCategory(id);
+            return View();
+        }
+          public ActionResult ProductVIew(int id)
+        {
+            ViewBag.productDetail = new ProductDao().getProductById(id);
             return View();
         }
     }

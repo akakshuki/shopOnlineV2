@@ -3049,7 +3049,8 @@
     <Content Include="Views\Shared\CategoryMenu.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\Shop\LoadProductByCategory.cshtml" />
-    <Content Include="Views\Shop\LoadProductBySubResultCategory.cshtml" />
+    <Content Include="Views\Shop\LoadProductBySubCategory.cshtml" />
+    <Content Include="Views\Shop\ProductVIew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

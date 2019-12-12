@@ -21,6 +21,8 @@ namespace Model.Dao
 
         public List<ProductMv> getListAll()
         {
+            var list = db.Products.ToList();
+
             var data = db.Products.Select(x => new ProductMv()
             {
                 ID = x.ID,
@@ -39,6 +41,8 @@ namespace Model.Dao
 
         public List<ProductMv> getListProduct()
         {
+          
+
             var data = db.Products.Select(x => new ProductMv()
             {
                 ID = x.ID,
@@ -151,7 +155,7 @@ namespace Model.Dao
 
         public object getListProductBySubCategory(int id)
         {
-            var data = db.Products.Where(x => x.SubCategory.Category.ID == id).Select(x => new ProductMv()
+            var data = db.Products.Where(x => x.SubCategory.ID == id).Select(x => new ProductMv()
             {
                 ID = x.ID,
                 Name = x.Name,
@@ -167,5 +171,28 @@ namespace Model.Dao
             }).OrderByDescending(x => x.DateCreate).Take(20).ToList();
             return data;
         }
+
+        public ProductMv getProductById(int id)
+        {
+            var data = db.Products.Where(x => x.ID == id).Select(x => new ProductMv()
+            {
+                ID = x.ID,
+                Name = x.Name,
+                CategoryName = x.SubCategory.Category.Name,
+                SubCategoryName = x.SubCategory.Name,
+                CategoryId = x.SubCategory.Category.ID,
+                SubCategoryId = x.SubCategory.ID,
+                DetailProducts = x.DetailProducts.Where(k=>k.ProductId == x.ID).ToList(),
+                Detail = x.Detail,
+                ProductImages = x.ProductImages.Where(k=>k.ProductId==x.ID).ToList(),
+                Price = string.IsNullOrEmpty(x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString()) ? "Liên hệ" : x.DetailProducts.Where(k => k.ProductId == x.ID).OrderByDescending(k=>k.Price).FirstOrDefault().Price.ToString() + "vnd",
+                Status = x.Status,
+                DateCreate = x.DateCreate
+
+            }).SingleOrDefault();
+            return data;
+        }
     }
+
+    
 }

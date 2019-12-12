@@ -32,7 +32,6 @@
     <!-- For Clients slider -->
     <link rel="stylesheet" href="~/Acess/Client/css/flexslider.css" type="text/css" media="all" />
     <!--flexs slider-->
-    <link href="~/Acess/Client/css/JiSlider.css" rel="stylesheet">
     <!--Shoping cart-->
     <link rel="stylesheet" href="~/Acess/Client/css/shop.css" type="text/css" />
     <!--//Shoping cart-->
@@ -41,8 +40,10 @@
     <!--//stylesheets-->
     <link href="//fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="~/Acess/Client/css/easy-responsive-tabs.css" rel="stylesheet" />
+    <link href="~/Acess/Client/css/jquery-ui1.css" rel="stylesheet" />
 
-    <link href="~/Content/style.css" rel="stylesheet" />
+
 
 
     <link href="~/Content/style.css" rel="stylesheet" />
@@ -54,10 +55,12 @@
             <div class="container-fluid">
                 <div class="hedder-up row">
                     <div class="col-lg-3 col-md-3 logo-head">
-                        <h1><a class="navbar-brand" href="@Url.Action("Index","Home")">
-                            <img src="~/Acess/Client/images/store_1533110099_109.png" width="50" height="50" />
-                            Nhóc giftShop
-                        </a></h1>
+                        <h1>
+                            <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                                <img src="~/Acess/Client/images/store_1533110099_109.png" width="50" height="50" />
+                                Nhóc giftShop
+                            </a>
+                        </h1>
                     </div>
                     <div class="col-lg-5 col-md-6 search-right">
                         <form class="form-inline my-lg-0">
@@ -88,7 +91,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <!--Main menu-->
             @{ Html.RenderAction("MainMenu", "Home"); }
 
@@ -96,17 +99,17 @@
         @RenderSection("slider", false);
     </div>
 
-<!-- //banner -->
-
-<!--Content-->
+    <!-- //banner -->
+    <!--Content-->
+    <div class="m-5">p</div>
     <div class="main mt-5">
-        @RenderBody()   
+        @RenderBody()
     </div>
-<!-- footer -->
+    <!-- footer -->
 
-@{ Html.RenderAction("Footer", "Home"); }
-    
-<footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
+    @{ Html.RenderAction("Footer", "Home"); }
+
+    <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
         <div class="copy-agile-right">
             <p>
                 © 2018 Toys-Shop. All Rights Reserved | Design by <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a>
@@ -115,41 +118,41 @@
     </footer>
     <!-- //footer -->
     <!-- Modal 1-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="register-form">
-                    <form action="#" method="post">
-                        <div class="fields-grid">
-                            <div class="styled-input">
-                                <input type="text" placeholder="Your Name" name="Your Name" required="">
-                            </div>
-                            <div class="styled-input">
-                                <input type="email" placeholder="Your Email" name="Your Email" required="">
-                            </div>
-                            <div class="styled-input">
-                                <input type="password" placeholder="password" name="password" required="">
-                            </div>
-                            <button type="submit" class="btn subscrib-btnn">Login</button>
-                        </div>
-                    </form>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="modal-body">
+                    <div class="register-form">
+                        <form action="#" method="post">
+                            <div class="fields-grid">
+                                <div class="styled-input">
+                                    <input type="text" placeholder="Your Name" name="Your Name" required="">
+                                </div>
+                                <div class="styled-input">
+                                    <input type="email" placeholder="Your Email" name="Your Email" required="">
+                                </div>
+                                <div class="styled-input">
+                                    <input type="password" placeholder="password" name="password" required="">
+                                </div>
+                                <button type="submit" class="btn subscrib-btnn">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- //Modal 1-->
+    <!-- //Modal 1-->
     <!--js working-->
     <script src='~/Acess/Client/js/jquery-2.2.3.min.js'></script>
     <!--//js working-->
@@ -256,5 +259,8 @@
     <!--bootstrap working-->
     <script src="~/Acess/Client/js/bootstrap.min.js"></script>
     <!-- //bootstrap working-->
+    <script src="~/Acess/Client/js/imagezoom.js"></script>
+    <script src="~/Acess/Client/js/jquery.flexslider.js"></script>
+    @RenderSection("jsFooter", false);
 </body>
 </html>

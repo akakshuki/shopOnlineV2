@@ -1,4 +1,4 @@
-﻿@model List<Model.Entities.Category>
+﻿@model List<Model.ModelView.CategoryMv>
 <div class="side-bar col-lg-3">
     <div class="search-hotel">
         <h3 class="agileits-sear-head">Tìm kiếm ở đây</h3>
@@ -9,33 +9,37 @@
     </div>
     <div class="categoryList">
         <h3>Danh mục sản phẩm</h3>
-        <ul>
+        <ul class="row">
             @foreach (var item in Model)
             {
 
-                <div class="dropdown">
+                <div class="dropdown col-md-12">
                     <li class="productCate ">
-                       @if (item.SubCategories.Count > 0)
+                        @if (item.SubCategories.Count > 0)
                         {
-                        <a class="dropbtn" href="/Shop/@item.ID">@item.Name</a>
-                        <div class="dropdown-content">
-                            <ul>
-                                @foreach (var item1 in item.SubCategories.Where(x => x.CategoryId == item.ID))
-                                {
-                                    <li class="productCate">
-                                        <a href="">@item1.Name</a>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
+                            <a class="dropbtn" href="@Url.Action("LoadProductByCategory","Shop",new  {id  = @item.ID})"> <i class='fa fa-heart'></i> @item.Name</a>
+                            <div class="dropdown-content">
+                                <ul>
+                                    @foreach (var item1 in item.SubCategories.Where(x => x.CategoryId == item.ID))
+                                    {
+                                        <li class="productCate">
+                                            <a href="@Url.Action("LoadProductBySubCategory","Shop", new { id = @item1.ID})"><i class='fa fa-heart'></i>@item1.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
                         }
-                    </li>
-                </div>
+                        else
+                        {
+                        <li class="productCate dropdown">
+                            <a href=""><i class='fa fa-heart'></i>@item.Name</a>
+                        </li>
+                    }
+                        </li>
+                    </div>
 
-                <li class="productCate dropdown">
-                    <a href="">@item.Name</a>
-                </li>
-            }
+
+                }
         </ul>
     </div>
     <!-- price range -->
