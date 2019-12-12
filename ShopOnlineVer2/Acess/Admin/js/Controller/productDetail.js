@@ -61,7 +61,7 @@
             dataType: 'json',
             data: {
                 model: {
-                    Color: $('#color').val(),
+                    Color: $('#inputColor').val(),
                     Size: $('#size').val(),
                     Price: $('#price').val(),
                     Status: $("#statusckb").is(":checked") ? "true" : "false",

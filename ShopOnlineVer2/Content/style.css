@@ -1,0 +1,8 @@
+﻿.productCate a {
+    color: black;
+}
+
+.productCate a:hover {
+        color: deeppink;
+        font-size: larger;
+    }

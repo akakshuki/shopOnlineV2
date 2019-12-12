@@ -45,7 +45,7 @@
     <link href="~/Content/style.css" rel="stylesheet" />
 
 
-
+    <link href="~/Content/style.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -54,7 +54,10 @@
             <div class="container-fluid">
                 <div class="hedder-up row">
                     <div class="col-lg-3 col-md-3 logo-head">
-                        <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
+                        <h1><a class="navbar-brand" href="@Url.Action("Index","Home")">
+                            <img src="~/Acess/Client/images/store_1533110099_109.png" width="50" height="50" />
+                            Nhóc giftShop
+                        </a></h1>
                     </div>
                     <div class="col-lg-5 col-md-6 search-right">
                         <form class="form-inline my-lg-0">
@@ -96,7 +99,7 @@
 <!-- //banner -->
 
 <!--Content-->
-    <div class="main">
+    <div class="main mt-5">
         @RenderBody()   
     </div>
 <!-- footer -->

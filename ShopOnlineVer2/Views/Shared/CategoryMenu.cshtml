@@ -1,26 +1,43 @@
-﻿
-<div class="pos-f-t py-lg-4 py-md-3 py-sm-3 py-3">
- 
-    <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </nav>
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-        
-            <ul>
-                <li>12</li>
-                <li>12</li>
-                <li>12</li>
-                <li>12</li>
-                <li>12</li>
-                <li>12</li>
-                <li>12</li>
-                <li>12</li>
-                <li>12</li>
-                <li>12</li>
-            </ul>
-            </div>
+﻿@model List<Model.Entities.Category>
+<div class="side-bar col-lg-3">
+    <div class="search-hotel">
+        <h3 class="agileits-sear-head">Tìm kiếm ở đây</h3>
+        <form action="#" method="post">
+            <input type="search" placeholder="Product name..." name="search" required="">
+            <input type="submit" value=" ">
+        </form>
     </div>
+    <div class="categoryList">
+        <h3>Danh mục sản phẩm</h3>
+        <ul>
+            @foreach (var item in Model)
+            {
+
+                <div class="dropdown">
+                    <li class="productCate ">
+                       @if (item.SubCategories.Count > 0)
+                        {
+                        <a class="dropbtn" href="/Shop/@item.ID">@item.Name</a>
+                        <div class="dropdown-content">
+                            <ul>
+                                @foreach (var item1 in item.SubCategories.Where(x => x.CategoryId == item.ID))
+                                {
+                                    <li class="productCate">
+                                        <a href="">@item1.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        }
+                    </li>
+                </div>
+
+                <li class="productCate dropdown">
+                    <a href="">@item.Name</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <!-- price range -->
+    <!-- //deals -->
 </div>

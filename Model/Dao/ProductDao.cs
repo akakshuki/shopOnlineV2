@@ -37,6 +37,24 @@ namespace Model.Dao
             return data;
         }
 
+        public List<ProductMv> getListProduct()
+        {
+            var data = db.Products.Select(x => new ProductMv()
+            {
+                ID = x.ID,
+                Name = x.Name,
+                CategoryName = x.SubCategory.Category.Name,
+                SubCategoryName = x.SubCategory.Name,
+                CategoryId = x.SubCategory.Category.ID,
+                SubCategoryId = x.SubCategory.ID,
+                Price = string.IsNullOrEmpty(x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString())?"Liên hệ" : x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString()+"vnd",
+                Image = x.Image,
+                Status = x.Status,
+                DateCreate = x.DateCreate
+
+            }).OrderByDescending(x => x.ID).ToList();
+            return data;
+        }
 
         public ProductMv getDetailById(int id)
         {
@@ -109,6 +127,45 @@ namespace Model.Dao
             {
                 return false;
             }
+        }
+
+        public List<ProductMv> getListProductByCategory(int id)
+        {
+            var data = db.Products.Where(x=>x.SubCategory.Category.ID == id).Select(x => new ProductMv()
+            {
+                ID = x.ID,
+                Name = x.Name,
+                CategoryName = x.SubCategory.Category.Name,
+                SubCategoryName = x.SubCategory.Name,
+                CategoryId = x.SubCategory.Category.ID,
+                SubCategoryId = x.SubCategory.ID,
+                Price = string.IsNullOrEmpty(x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString()) ? "Liên hệ" : x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString() + "vnd",
+                Image = x.Image,
+                Status = x.Status,
+                DateCreate = x.DateCreate
+
+            }).OrderByDescending(x => x.DateCreate).Take(20).ToList();
+            return data;
+
+        }
+
+        public object getListProductBySubCategory(int id)
+        {
+            var data = db.Products.Where(x => x.SubCategory.Category.ID == id).Select(x => new ProductMv()
+            {
+                ID = x.ID,
+                Name = x.Name,
+                CategoryName = x.SubCategory.Category.Name,
+                SubCategoryName = x.SubCategory.Name,
+                CategoryId = x.SubCategory.Category.ID,
+                SubCategoryId = x.SubCategory.ID,
+                Price = string.IsNullOrEmpty(x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString()) ? "Liên hệ" : x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString() + "vnd",
+                Image = x.Image,
+                Status = x.Status,
+                DateCreate = x.DateCreate
+
+            }).OrderByDescending(x => x.DateCreate).Take(20).ToList();
+            return data;
         }
     }
 }
