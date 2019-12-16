@@ -8,23 +8,33 @@ namespace ShopOnlineVer2.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Home
         public ActionResult Index()
         {
             return View();
-        }
+            // goi thanH VIEW  khong goi thanh trang dc
 
-        public ActionResult About()
+        }
+        [ChildActionOnly]
+        public ActionResult MainMenu()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+          
+          
+            return PartialView();
         }
 
-        public ActionResult Contact()
+        [ChildActionOnly]
+        public ActionResult Footer()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+          
+            return PartialView();
         }
+        [ChildActionOnly]
+        public ActionResult Slide()
+        {
+            return PartialView();
+        }
+
+        
     }
 }

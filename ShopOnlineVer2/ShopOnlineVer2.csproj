@@ -142,6 +142,7 @@
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2730,12 +2731,40 @@
     <Content Include="Acess\Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Acess\Admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Acess\Admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Acess\Client\css\bootstrap.min.css" />
+    <Content Include="Acess\Client\css\checkout.css" />
+    <Content Include="Acess\Client\css\creditly.css" />
+    <Content Include="Acess\Client\css\easy-responsive-tabs.css" />
+    <Content Include="Acess\Client\css\flexslider.css" />
+    <Content Include="Acess\Client\css\fontawesome-all.min.css" />
+    <Content Include="Acess\Client\css\jquery-ui1.css" />
+    <Content Include="Acess\Client\css\shop.css" />
+    <Content Include="Acess\Client\css\style.css" />
+    <Content Include="Acess\Client\images\store_1533110099_109.png" />
+    <Content Include="Acess\Client\js\bootstrap.min.js" />
+    <Content Include="Acess\Client\js\Controller\miniCartController.js" />
+    <Content Include="Acess\Client\js\Controller\ProductController.js" />
+    <Content Include="Acess\Client\js\creditly.js" />
+    <Content Include="Acess\Client\js\easing.js" />
+    <Content Include="Acess\Client\js\easy-responsive-tabs.js" />
+    <Content Include="Acess\Client\js\imagezoom.js" />
+    <Content Include="Acess\Client\js\jquery-2.2.3.min.js" />
+    <Content Include="Acess\Client\js\jquery-ui.js" />
+    <Content Include="Acess\Client\js\jquery.flexisel.js" />
+    <Content Include="Acess\Client\js\jquery.flexslider.js" />
+    <Content Include="Acess\Client\js\minicart.js" />
+    <Content Include="Acess\Client\js\move-top.js" />
+    <Content Include="Acess\Client\js\responsiveslides.min.js" />
+    <Content Include="Acess\Client\webfonts\fa-brands-400.svg" />
+    <Content Include="Acess\Client\webfonts\fa-regular-400.svg" />
+    <Content Include="Acess\Client\webfonts\fa-solid-900.svg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -2962,8 +2991,23 @@
     <Content Include="Areas\Admin\Views\Product\Insert.cshtml" />
     <Content Include="Areas\Admin\Views\Product\MoreImage.cshtml" />
     <Content Include="Areas\Admin\Views\Product\DetailProduct.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\Customer\ListCustomer.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\EditCustomer.cshtml" />
+=======
+    <Content Include="Acess\Client\webfonts\fa-brands-400.eot" />
+    <Content Include="Acess\Client\webfonts\fa-brands-400.ttf" />
+    <Content Include="Acess\Client\webfonts\fa-brands-400.woff" />
+    <Content Include="Acess\Client\webfonts\fa-brands-400.woff2" />
+    <Content Include="Acess\Client\webfonts\fa-regular-400.eot" />
+    <Content Include="Acess\Client\webfonts\fa-regular-400.ttf" />
+    <Content Include="Acess\Client\webfonts\fa-regular-400.woff" />
+    <Content Include="Acess\Client\webfonts\fa-regular-400.woff2" />
+    <Content Include="Acess\Client\webfonts\fa-solid-900.eot" />
+    <Content Include="Acess\Client\webfonts\fa-solid-900.ttf" />
+    <Content Include="Acess\Client\webfonts\fa-solid-900.woff" />
+    <Content Include="Acess\Client\webfonts\fa-solid-900.woff2" />
+>>>>>>> e459d5250d72d20bb63d2d9b2f53818a4bf2a078
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2994,10 +3038,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -3007,6 +3047,17 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\MainMenu.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shared\Slide.cshtml" />
+    <Content Include="Views\Shared\CategoryMenu.cshtml" />
+    <Content Include="Views\Shared\View.cshtml" />
+    <Content Include="Views\Shop\LoadProductByCategory.cshtml" />
+    <Content Include="Views\Shop\LoadProductBySubCategory.cshtml" />
+    <Content Include="Views\Shop\ProductVIew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
