@@ -2741,6 +2741,7 @@
     <Content Include="Acess\Client\css\style.css" />
     <Content Include="Acess\Client\images\store_1533110099_109.png" />
     <Content Include="Acess\Client\js\bootstrap.min.js" />
+    <Content Include="Acess\Client\js\Controller\miniCartController.js" />
     <Content Include="Acess\Client\js\Controller\ProductController.js" />
     <Content Include="Acess\Client\js\creditly.js" />
     <Content Include="Acess\Client\js\easing.js" />

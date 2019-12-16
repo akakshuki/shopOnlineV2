@@ -182,10 +182,11 @@ namespace Model.Dao
                 SubCategoryName = x.SubCategory.Name,
                 CategoryId = x.SubCategory.Category.ID,
                 SubCategoryId = x.SubCategory.ID,
-                DetailProducts = x.DetailProducts.Where(k=>k.ProductId == x.ID).ToList(),
+                DetailProducts = x.DetailProducts.Where(k=>k.ProductId == x.ID).GroupBy(e=>e.Size).Select(i => i.FirstOrDefault()).ToList(),
+                Image = x.Image,
                 Detail = x.Detail,
                 ProductImages = x.ProductImages.Where(k=>k.ProductId==x.ID).ToList(),
-                Price = string.IsNullOrEmpty(x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString()) ? "Liên hệ" : x.DetailProducts.Where(k => k.ProductId == x.ID).OrderByDescending(k=>k.Price).FirstOrDefault().Price.ToString() + "vnd",
+                Price = string.IsNullOrEmpty(x.DetailProducts.Where(k => k.ProductId == x.ID).FirstOrDefault().Price.ToString()) ? "Liên hệ" : x.DetailProducts.Where(k => k.ProductId == x.ID).OrderByDescending(k=>k.Price).FirstOrDefault().Price.ToString() ,
                 Status = x.Status,
                 DateCreate = x.DateCreate
 

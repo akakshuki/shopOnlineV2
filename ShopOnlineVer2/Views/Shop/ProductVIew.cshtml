@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var productDetail = @ViewBag.productDetail;
     var listImage = productDetail.ProductImages;
+
     var detailString = new HtmlString(productDetail.Detail);
 
 }
@@ -50,11 +51,22 @@
                     <div class="grid images_3_of_2">
                         <div class="flexslider1">
                             <ul class="slides">
+                                @if (listImage.Count == 0)
+                                {
+                                <li data-thumb="/Acess/Admin/img/product/@productDetail.Image">
+                                    <div class="thumb-image"> <img src="~/Acess/Admin/img/product/@productDetail.Image " data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                                </li>
+
+                                }
                                 @foreach (var item in listImage)
                                 {
+
+
                                     <li data-thumb="/Acess/Admin/img/product/@item.Name">
                                         <div class="thumb-image"> <img src="~/Acess/Admin/img/product/@item.Name " data-imagezoom="true" class="img-fluid" alt=" "> </div>
                                     </li>
+
+
                                 }
                             </ul>
                             <div class="clearfix"></div>
@@ -63,45 +75,69 @@
                 </div>
                 <div class="col-lg-8 single-right-left simpleCart_shelfItem">
                     <h3>@productDetail.Name</h3>
+                    <input type="hidden" value="@productDetail.Price" />
                     <p>
-                        <span class="item_price" id="price">@productDetail.Price</span>
+                      <span class="item_price" id="price">@productDetail.Price  vnd </span>
                     </p>
-
-
-                    <div class="color-quality">
-                        <div class="color-quality-right">
-                            <h5>Size :</h5>
-                            <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-                                <option value="null">2 Feet</option>
-                                <option value="null">3 Feet</option>
-                                <option value="null">4 Feet</option>
-                                <option value="null">5 Feet</option>
-                            </select>
-                        </div>
-                    </div>
                     <div class="occasional">
-                        <h5>Types :</h5>
-                        <div class="colr ert">
-                            <label class="radio"><input type="radio" name="radio" checked=""><i></i> Soft Teddy Bear (Black)</label>
-                        </div>
-                        <div class="colr">
-                            <label class="radio"><input type="radio" name="radio"><i></i>Soft Teddy Bear (Brown)</label>
-                        </div>
-                        <div class="colr">
-                            <label class="radio"><input type="radio" name="radio"><i></i>Pink Teddy Bear (Pink)</label>
+                        <h5>Màu sắc :</h5>
+                        <div class="color row">
+                            @if (productDetail.DetailProducts.Count == 0)
+                            {
+                                <div class="col-md-1">
+                                    <button class="btn m-2 p-1 text-center" style="max-width: 50px; max-height: 50px;"> <i style="color: #ffffff" class="fas fa-heart fa-2x "></i> </button>
+                                </div>
+
+                            }
+                            @foreach (var item in productDetail.DetailProducts)
+                            {
+
+
+                                <div class="col-md-1">
+                                    <button class="btn m-2 p-1 text-center" style="max-width: 50px; max-height: 50px;" value=" @item.Color"> <i style="color: @item.Color" class="fas fa-heart fa-2x "></i> </button>
+                                </div>
+
+
+
+                            }
                         </div>
                         <div class="clearfix"> </div>
                     </div>
-                    <div class="occasion-cart">
+
+                    <div class="color-quality">
+                        <div class="color-quality-right">
+                            <h5>Kích thước: </h5>
+                            <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                                @if (productDetail.DetailProducts.Count == 0)
+                                {
+                                    <option value="FREE SIZE">FREE SIZE</option>
+                                }
+                                @foreach (var item in productDetail.DetailProducts)
+                                {
+
+
+
+                                    <option value="@item.Size"> @item.Size </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="occasion-cart mt-2">
                         <div class="toys single-item singlepage">
                             <form action="#" method="post">
                                 <input type="hidden" name="cmd" value="_cart">
                                 <input type="hidden" name="add" value="1">
                                 <input type="hidden" name="toys_item" value="Farenheit">
                                 <input type="hidden" name="amount" value="575.00">
-                                <button type="submit" class="toys-cart ptoys-cart add">
-                                    Add to Cart
-                                </button>
+                                @if (productDetail.DetailProducts.Count != 0)
+                                {
+                                    <button type="submit" class="toys-cart ptoys-cart add" style="min-width: 300px">
+                                        Thêm vào giỏ hàng
+                                    </button>
+                                    <button type="submit" class="toys-cart ptoys-cart add">
+                                        Mua ngay
+                                    </button>}
                             </form>
                         </div>
                     </div>
@@ -144,7 +180,7 @@
                         <div class="resp-tabs-container">
                             <!--/tab_one-->
                             <div class="tab1">
-                                <div class="single_page" style="min-width: 80% ">
+                                <div class="single_page" style="min-width: 80%; max-width: 80% ">
                                     <h6>Thông tin @productDetail.Name</h6>
                                     @detailString
                                 </div>

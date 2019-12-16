@@ -17,7 +17,7 @@ namespace Model.Entities
         public int ID { get; set; }
         public string Color { get; set; }
         public string Size { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public decimal Price { get; set; }
         public Nullable<int> CreateBy { get; set; }
         public Nullable<System.DateTime> DateCreate { get; set; }
         public Nullable<int> ModifyBy { get; set; }
