@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Model.ModelView;
 
 namespace Model.Dao
 {
@@ -69,6 +70,18 @@ namespace Model.Dao
             {
                 return false;
             }
+        }
+
+        public List<CategoryMv> ListCategories()
+        {
+            var data = db.Categories.Select(x => new CategoryMv
+            {
+                ID = x.ID,
+                Name = x.Name,
+                SubCategories = x.SubCategories.Where(k=> k.CategoryId == x.ID).ToList()
+                }).ToList();
+
+            return data;
         }
     }
 }

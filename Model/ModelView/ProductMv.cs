@@ -17,7 +17,12 @@ namespace Model.ModelView
         public int SubCategoryId { get; set; }
         public string SubCategoryName { get; set; }
         public string Image { get; set; }
-        public int CreateBy { get; set; }
+        public string Price { get; set; }
+        public decimal PriceDe { get; set; }
+        public ProductImage ProductImage { get; set; }
+        public List<ProductImage> ProductImages { get; set; }
+        public DetailProduct DetailProduct { get; set; }
+        public List<DetailProduct> DetailProducts { get; set; }public int CreateBy { get; set; }
         public DateTime DateCreate { get; set; }
         public int ModifyBy { get; set; }
         public DateTime ModifyDate { get; set; }

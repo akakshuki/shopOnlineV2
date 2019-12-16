@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Web.Mvc;
+
 namespace Model.Entities
 {
     using System;
@@ -24,6 +26,7 @@ namespace Model.Entities
     
         public int ID { get; set; }
         public string Name { get; set; }
+        [AllowHtml]
         public string Detail { get; set; }
         public Nullable<int> CategoryId { get; set; }
         public Nullable<int> SubCategoryId { get; set; }

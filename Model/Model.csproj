@@ -84,6 +84,7 @@
     <Compile Include="Dao\CategoryDao.cs" />
     <Compile Include="Dao\CustomerDAO.cs" />
     <Compile Include="Dao\ImageProductDao.cs" />
+    <Compile Include="Dao\MenuDao.cs" />
     <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Dao\ProductDetailDao.cs" />
     <Compile Include="Dao\SubCategoryDao.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Entities\User.cs">
       <DependentUpon>NhocGiftShopDataContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelView\CategoryMv.cs" />
     <Compile Include="ModelView\DetailProductMv.cs" />
     <Compile Include="ModelView\ProductImageMv.cs" />
     <Compile Include="ModelView\ProductMv.cs" />
