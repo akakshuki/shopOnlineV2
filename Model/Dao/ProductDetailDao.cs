@@ -27,8 +27,8 @@ namespace Model.Dao
                  DateCreate = (DateTime) x.DateCreate,
                  Price = (decimal) x.Price,
                  Status = x.Status,
-                 ProductName = x.Product.Name,
-                 ProductId = x.Product.ID,
+                 //ProductName = x.Product.Name,
+                 //ProductId = x.Product.ID,
 
 
              }).ToList();

@@ -35,10 +35,12 @@ namespace Model.Dao
                     {
                         return 1;
                     }
-                    else
+                    else 
+                   
                     {
-                        return -2;
-                    }
+                        return 2;
+                    }        
+                   
                 }
             }
         }

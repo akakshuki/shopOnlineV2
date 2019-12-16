@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "ListCustomer";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+
+}
+@section header{
+    <h2>ListCustomer</h2>
+}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">User Name</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Birth</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.ListCus)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Birth</td>
+                    <td>@(item.Male == true ? "Male" : "Female" )</td>
+                    <td>
+                        <button type="button" class="btn btn-success"><a href="@Url.Action("EditCustomer", new { idCus = item.ID })" style="color:aliceblue"><i class="far fa-edit"></i></a></button>
+                        <button type="button" class="btn btn-danger"><a href="@Url.Action("DeleteCustomer", new { idCus = item.ID })"  style="color:aliceblue"><i class="fas fa-trash-alt"></i></a></button>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+

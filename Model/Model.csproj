@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\CategoryDao.cs" />
+    <Compile Include="Dao\CustomerDAO.cs" />
     <Compile Include="Dao\ImageProductDao.cs" />
     <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Dao\ProductDetailDao.cs" />
@@ -130,6 +131,9 @@
       <DependentUpon>NhocGiftShopDataContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\SubCategory.cs">
+      <DependentUpon>NhocGiftShopDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagram.cs">
       <DependentUpon>NhocGiftShopDataContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\User.cs">

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "EditCustomer";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+    var data = ViewBag.selectID;
+}
+@section header{
+    <h2>EditCustomer</h2>
+}
+<div class="container">
+    <form action="@Url.Action("UpdateCustomer")" class="was-validated" method="post">
+        <input type="hidden" name="ID" value="@data.ID" />
+        <div class="mb-3">
+            <label for="validationTextarea">User Name</label>
+            <input name="UserName" type="text" class="form-control is-invalid" value="@data.UserName" />
+        </div>
+        <div class="mb-3">
+            <label for="validationTextarea">Name User</label>
+            <input name="Name" type="text" class="form-control is-invalid" value="@data.Name" />
+        </div>
+        <div class="mb-3">
+            <label for="inputEmail4">Email</label>
+            <input value="@data.Email" name="Email" type="email" class="form-control is-invalid" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="mb-3">
+            <label for="validationTextarea">Phone Number</label>
+            <input name="Phone" class="form-control is-invalid" type="number" value="@data.Phone" />
+        </div>
+        <div class="mb-3">
+            <label for="validationTextarea">Birth</label>
+            <input name="Birth" class="form-control is-invalid" type="datetime" value="@data.Birth" />
+        </div>
+        <button type="submit" class="btn btn-warning">Update</button>
+    </form>
+</div>
+
